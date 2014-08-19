@@ -15,7 +15,18 @@ class DemoController extends Config
             'robots' => 'All',
             );
         
-        return ROUTER::show_view('demo/index', array('meta' => $meta));
+        $conn = DB::connect($this->db['sqlite']);
+        $sql = "SELECT * FROM test";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        $model = array();
+        
+        while($filas = $query->fetch())
+        {
+            $model[] = $filas;
+        }
+        
+        return ROUTER::show_view('demo/index', array('meta' => $meta, 'model' => $model));
     }
     
     public function login()

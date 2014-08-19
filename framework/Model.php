@@ -2,6 +2,7 @@
 
 require "Model/ModelRouter.php";
 require "Model/ModelHtml.php";
+require "Model/ModelDb.php";
 require "../app/Config/Config.php";
 
 if (isset($_GET["r"]))

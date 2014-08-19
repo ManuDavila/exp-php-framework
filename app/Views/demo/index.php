@@ -1,3 +1,11 @@
+<?php  
+        
+  foreach ($model as $fila)  
+  {
+      echo "id: " . $fila["id"] . "test: " . $fila["test"] . "<br>";
+  }
+ ?>
+
 
 <h3>FORMULARIO</h3>
 <?php echo HTML::open_form(array(
