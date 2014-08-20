@@ -1,5 +1,7 @@
 <?php  
-        
+      
+echo $msg;
+
   foreach ($model as $fila)  
   {
       echo "id: " . $fila["id"] . "test: " . $fila["test"] . "<br>";
