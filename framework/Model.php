@@ -4,6 +4,8 @@ require "Model/ModelRouter.php";
 require "Model/ModelHtml.php";
 require "Model/ModelDb.php";
 require "Model/ModelPhpmailer.php";
+require "Model/ModelFormvalidate.php";
+require "Model/ModelUrl.php";
 require "../app/Config/Config.php";
 
 if (isset($_GET["r"]))

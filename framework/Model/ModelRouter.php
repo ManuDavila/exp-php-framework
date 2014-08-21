@@ -29,7 +29,7 @@ class ROUTER
             }
         }
         
-        return "index.php?r=".$r."".$p."";
+        return URL::base_url()."/index.php?r=".$r."".$p."";
     }
     
     static function redirect_to_action($r, $parameters=null)

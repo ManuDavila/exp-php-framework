@@ -1,36 +1,27 @@
-<?php  
-      
+<?php
+
+echo URL::base_url();
+
+echo HTML::a(ROUTER::create_action_url("demo/index"), "PRUEBA");
+
 echo $msg;
-
-  foreach ($model as $fila)  
-  {
-      echo "id: " . $fila["id"] . "test: " . $fila["test"] . "<br>";
-  }
- ?>
-
-
-<h3>FORMULARIO</h3>
-<?php echo HTML::open_form(array(
-    "method" => "POST", 
+echo HTML::open_form(array(
+    "method" => "POST",
     "action" => ROUTER::create_action_url("demo/index"),
-    "enctype" => "multipart/form-data"
-        )) ?>
+    "enctype" => "multipart/form-data",
+));
 
-<?php echo HTML::label("nombre", "Introduce tu nombre") ?>
-<?php echo HTML::input("text", "nombre", null, array("placeholder" => "Introduce tu nombre")) ?>
+echo HTML::label("name", "Name:");
+echo HTML::input("text", "name", null, array("placeholder" => "name"));
+echo HTML::br();
+echo HTML::label("repeat_name", "Repeat name:");
+echo HTML::input("text", "repeat_name", null, array("placeholder" => "Repeat name"));
+echo HTML::br();
+echo HTML::label("upload", "Upload:");
+echo HTML::input("file", "upload");
+echo HTML::br();
+echo HTML::button_HTML5("submit", "Send");
 
-<?php echo HTML::br(2) ?>
-
-<?php echo HTML::radio("radio", "1", false) ?>
-
-<?php echo HTML::br(2) ?>
-
-<?php echo HTML::checkbox("check", null, false) ?>
-
-<?php echo HTML::br(2) ?>
-
-<?php echo HTML::button_HTML5("submit", "Enviar el formulario", array("id" => "button")) ?>
-
-<?php echo HTML::close_form() ?>
+echo HTML::close_form();
 
 
