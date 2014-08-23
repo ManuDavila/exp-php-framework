@@ -64,5 +64,19 @@ class Config
          ),
          
      );
+     
+     public $DirectoryIndex = "index.php?r=demo/index";
+     
+     public $rules = array(
+         "demo/index" => array(
+             "?r=demo/index" => "index",
+             "?r=demo/index&id=$1" => "index/id/([0-9]+)",
+             "?r=demo/index&id=$1&title=$2" => "index/id/([0-9]+)/title/([a-zA-Z]+)",
+         ),
+         
+         "demo/login" => array(
+             "?r=demo/login" => "login",
+         ),
+     );
 }
 

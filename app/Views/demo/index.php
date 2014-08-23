@@ -1,8 +1,9 @@
 <?php
 
-echo URL::base_url();
+echo HTML::a(ROUTER::create_action_url("demo/index", array("id" => 3)), "PRUEBA");
 
-echo HTML::a(ROUTER::create_action_url("demo/index"), "PRUEBA");
+echo HTML::br(2);
+echo ROUTER::create_action_url("demo/index");
 
 echo $msg;
 echo HTML::open_form(array(

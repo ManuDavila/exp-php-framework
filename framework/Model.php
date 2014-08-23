@@ -6,7 +6,15 @@ require "Model/ModelDb.php";
 require "Model/ModelPhpmailer.php";
 require "Model/ModelFormvalidate.php";
 require "Model/ModelUrl.php";
+require "Model/ModelHtaccess.php";
 require "../app/Config/Config.php";
+
+
+$config = new Config();
+HTACCESS::$DirectoryIndex = $config->DirectoryIndex;
+HTACCESS::$rules = $config->rules;
+HTACCESS::run();
+
 
 if (isset($_GET["r"]))
 {

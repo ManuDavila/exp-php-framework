@@ -20,6 +20,23 @@ class ROUTER
     
     static function create_action_url($r, $parameters=null)
     {
+        if (in_array("mod_rewrite", apache_get_modules()))
+        {
+            $p = null;
+            $config = new Config();
+            $rule = $config->rules[$r];
+            $r = $rule["?r=$r"];
+            if (is_array($parameters))
+            {
+                foreach ($parameters as $param => $value)
+                {
+                   $p .= "/$param/$value"; 
+                }
+            }
+            return URL::base_url()."/".$r."".$p."";
+        }
+        else
+        {
         $p = null;
         if (is_array($parameters))
         {
@@ -28,12 +45,29 @@ class ROUTER
                 $p .= "&$param=$value";
             }
         }
-        
         return URL::base_url()."/index.php?r=".$r."".$p."";
+        }
     }
     
     static function redirect_to_action($r, $parameters=null)
     {
+        if (in_array("mod_rewrite", apache_get_modules()))
+        {
+            $p = null;
+            $config = new Config();
+            $rule = $config->rules[$r];
+            $r = $rule["?r=$r"];
+            if (is_array($parameters))
+            {
+                foreach ($parameters as $param => $value)
+                {
+                   $p .= "/$param/$value"; 
+                }
+            }
+            return header("location: ".URL::base_url()."/".$r."".$p."");
+        }
+        else
+        {
         $p = null;
         if (is_array($parameters))
         {
@@ -42,8 +76,8 @@ class ROUTER
                 $p .= "&$param=$value";
             }
         }
-        
-        header("location: index.php?r=".$r."".$p."");
+        header("location: ".URL::base_url()."/index.php?r=".$r."".$p."");
+        }
     }
     
     static function load_view($v)
