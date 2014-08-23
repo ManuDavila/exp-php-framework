@@ -29,7 +29,7 @@ if (isset($_GET["r"]))
     
     require "../app/Controllers/$class_controller.php";
     
-    $obj = new $class_controller;
+    $app = new $class_controller;
     
-    call_user_func(array($obj, $action));
+    call_user_func(array($app, $action));
 }

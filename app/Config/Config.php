@@ -2,6 +2,7 @@
 
 class Config
 {
+     public $appName = "Application";
      public $layout = "layouts/layout";
      
      public $db = array(

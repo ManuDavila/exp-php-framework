@@ -12,8 +12,8 @@ class ROUTER
         $route = explode("/", $_GET["r"]);
         $controller = $route[0];
         $controller = ucfirst($controller)."Controller";
-        $obj = new $controller;
-        $layout = $obj->layout;
+        $app = new $controller;
+        $layout = $app->layout;
         $content = "../app/Views/$view.php";
         include "../app/Views/$layout.php";
     }
