@@ -8,13 +8,23 @@ require "Model/ModelFormvalidate.php";
 require "Model/ModelUrl.php";
 require "Model/ModelHtaccess.php";
 require "../app/Config/Config.php";
-
+require "../app/Controllers/Controllers.php";
 
 $config = new Config();
+
+if ($config->debug)
+{
+    require "Model/ErrorHandler.php";
+}
+else
+{
+    error_reporting("E_ALL");
+}
+
 HTACCESS::$DirectoryIndex = $config->DirectoryIndex;
+HTACCESS::$ErrorPage = $config->ErrorPage;
 HTACCESS::$rules = $config->rules;
 HTACCESS::run();
-
 
 if (isset($_GET["r"]))
 {

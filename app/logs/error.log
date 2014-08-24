@@ -1,0 +1,2 @@
+[2014-08-24 07:08:44] [E_NOTICE: Undefined variable: hola] [IN FILE C:\xampp\htdocs\framework\app\Views\demo\index.php] [LINE 7]
+[2014-08-24 07:08:28] [E_NOTICE: Undefined variable: hola] [IN FILE C:\xampp\htdocs\framework\app\Views\demo\index.php] [LINE 7]

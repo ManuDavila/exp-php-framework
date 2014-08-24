@@ -4,6 +4,7 @@ class Config
 {
      public $appName = "Application";
      public $layout = "layouts/layout";
+     public $debug = true;
      
      public $db = array(
          
@@ -67,6 +68,7 @@ class Config
      );
      
      public $DirectoryIndex = "index.php?r=demo/index";
+     public $ErrorPage = "index.php?r=demo/error";
      
      public $rules = array(
          "demo/index" => array(

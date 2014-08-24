@@ -1,6 +1,6 @@
 <?php
 
-class DemoController extends Config
+class DemoController extends Controllers
 {
     
     public $layout = "layouts/demolayout";

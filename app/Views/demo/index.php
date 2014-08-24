@@ -1,11 +1,13 @@
 <?php
 
 echo HTML::a(ROUTER::create_action_url("demo/index", array("id" => 3)), "PRUEBA");
-
 echo HTML::br(2);
 echo ROUTER::create_action_url("demo/index");
 
+echo $hola;
+
 echo $msg;
+
 echo HTML::open_form(array(
     "method" => "POST",
     "action" => ROUTER::create_action_url("demo/index"),
