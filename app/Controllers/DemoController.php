@@ -93,7 +93,57 @@ class DemoController extends Controllers
             $msg = $validate->msg;
         }
         }
-        return ROUTER::show_view('demo/index', array('meta' => $meta, 'msg' => $msg));
+        
+        $conn = DB::connect($this->db["mysql"]);
+        
+        $pagination = new PDO_Pagination($conn);
+        
+        if (isset($_POST["buscar"]))
+        {
+            
+        $pagination->params = array("buscar" => $_POST["buscar"]);
+        
+        $pagination->rowCount("SELECT * FROM test_paginacion WHERE paginacion LIKE '%".$_POST["buscar"]."%'");
+        $pagination->config(2, 3);
+        
+        $pagination->btn_next_page = "Siguiente";
+        $pagination->btn_back_page = "Anterior";
+        $pagination->btn_last_page = "Última";
+        $pagination->btn_first_page = "Primera";
+        
+        $sql = "SELECT * FROM test_paginacion WHERE paginacion LIKE '%".$_POST["buscar"]."%' ORDER BY id ASC LIMIT $pagination->start_row, $pagination->max_rows";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        
+        $model = array();
+        
+        while($rows = $query->fetch())
+        {
+        $model[] = $rows;
+        }
+       }
+       else
+       {
+        $pagination->rowCount("SELECT * FROM test_paginacion");
+        $pagination->config(2, 3);
+        
+        $pagination->btn_next_page = "Siguiente";
+        $pagination->btn_back_page = "Anterior";
+        $pagination->btn_last_page = "Última";
+        $pagination->btn_first_page = "Primera";
+        
+        $sql = "SELECT * FROM test_paginacion ORDER BY id ASC LIMIT $pagination->start_row, $pagination->max_rows";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        
+        $model = array();
+        
+        while($rows = $query->fetch())
+        {
+        $model[] = $rows;
+        }
+       }
+        return ROUTER::show_view('demo/index', array('meta' => $meta, 'msg' => $msg, 'model' => $model, 'pagination' => $pagination));
     }
     
     public function login()

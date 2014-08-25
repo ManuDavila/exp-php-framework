@@ -1,5 +1,6 @@
 <?php
 
+/*
 echo HTML::a(ROUTER::create_action_url("demo/index", array("id" => 3)), "PRUEBA");
 echo HTML::br(2);
 echo ROUTER::create_action_url("demo/index");
@@ -27,4 +28,20 @@ echo HTML::button_HTML5("submit", "Send");
 
 echo HTML::close_form();
 
+*/
+?>
 
+<form method="post">
+    Buscar: <input type="search" name="buscar" placeholder="Buscar">
+    <button type="submit">Buscar</button>
+</form>
+
+<?php
+echo "<table class='table'>";
+foreach ($model as $row)
+{
+    echo "<tr><td>".$row["id"]."</td><td>".$row["paginacion"]."</td></tr>";
+}
+echo "</table>";
+
+$pagination->pages('btn btn-primary');

@@ -7,6 +7,7 @@ require "Model/ModelPhpmailer.php";
 require "Model/ModelFormvalidate.php";
 require "Model/ModelUrl.php";
 require "Model/ModelHtaccess.php";
+require "Model/ModelPagination.php";
 require "../app/Config/Config.php";
 require "../app/Controllers/Controllers.php";
 
