@@ -1,5 +1,5 @@
 DirectoryIndex index.php?r=demo/index
-ErrorDocument 404 http://framework.local/index.php?r=demo/error
+ErrorDocument 404 http://localhost/framework/index.php?r=demo/error
 RewriteEngine on
 RewriteRule ^index$ index.php?r=demo/index [L]
 RewriteRule ^index/id/([0-9]+)$ index.php?r=demo/index&id=$1 [L]

@@ -31,11 +31,14 @@ echo HTML::close_form();
 */
 ?>
 
+<a href="https://www.youtube.com/watch?v=DQX9H0U9XD8&list=PLjARR1053fYlscKgK5bV_3BMTog3rnYwB&index=23" target="_blank">Perteneciente al capítulo 23 del vídeo tutorial</a>
+<br><br>
+
 <form method="post">
     Buscar: <input type="search" name="buscar" placeholder="Buscar">
     <button type="submit">Buscar</button>
 </form>
-
+<br><br>
 <?php
 echo "<table class='table'>";
 foreach ($model as $row)

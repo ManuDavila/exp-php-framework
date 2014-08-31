@@ -94,7 +94,7 @@ class DemoController extends Controllers
         }
         }
         
-        $conn = DB::connect($this->db["mysql"]);
+        $conn = DB::connect($this->db["sqlite"]);
         
         $pagination = new PDO_Pagination($conn);
         
@@ -143,12 +143,21 @@ class DemoController extends Controllers
         $model[] = $rows;
         }
        }
+       
         return ROUTER::show_view('demo/index', array('meta' => $meta, 'msg' => $msg, 'model' => $model, 'pagination' => $pagination));
     }
     
     public function login()
     {
-        return ROUTER::show_view('demo/login');
+		$meta = array
+		(
+		'title' => 'Login',
+		'description' => 'Login',
+		'keywords' => '',
+		'robots' => 'NOINDEX,NOFOLLOW',
+		);
+		
+        return ROUTER::show_view('demo/login', array("meta" => $meta));
     }
     
 }

@@ -80,6 +80,7 @@ class Config
          "demo/login" => array(
              "?r=demo/login" => "login",
          ),
+         
      );
 }
 

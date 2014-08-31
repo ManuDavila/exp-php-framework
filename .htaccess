@@ -1,5 +1,5 @@
 DirectoryIndex public/index.php?r=demo/index
-ErrorDocument 404 http://framework.local/public/index.php?r=demo/error
+ErrorDocument 404 http://localhost/framework/public/index.php?r=demo/error
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f 
 RewriteCond %{REQUEST_FILENAME} !-d 
